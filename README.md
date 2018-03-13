@@ -1,6 +1,9 @@
+# demo 
+[click here](https://deepakcho.github.io/calendar-demo/)
+
 # calendar-ui
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) .
 
 ## Development server
 
