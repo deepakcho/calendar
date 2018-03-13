@@ -1,0 +1,33 @@
+<div class="container" style="overflow:hidden">
+  <div class="month">
+    <ul>
+      <li class="prev" (click)="prev()">&#10094;</li>
+      <li class="next" (click)="next()">&#10095;</li>
+      <li>{{title.month}}
+        <br>
+        <span style="font-size:18px">{{title.year}}</span>
+      </li>
+    </ul>
+  </div>
+  <div class=" animated" style="margin:0" [class.slideInLeft]="state=='next'" [class.slideInRight]="state=='prev'">
+    <ul class="weekdays">
+      <li *ngFor="let day of daysArray">{{day}}</li>
+    </ul>
+
+    <div class="days">
+      <div class="dt-row" *ngFor="let dtrow of days">
+        <div class="dt-cell" [class.inMonth]='dt.inMonth'
+        [class.holiday]='dt.holidayEvent'
+        [class.active]='dt.currentDate'
+        [class.weekEnd]='dt.isWeekEnd'
+        (click)="handler(dt)"
+        *ngFor="let dt of dtrow">
+          <div class="relative-cont">
+            <span class="date">{{dt.date}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

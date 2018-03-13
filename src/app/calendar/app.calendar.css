@@ -1,0 +1,222 @@
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+.container{
+  max-width:1170px;
+  margin: 0 auto;
+}
+.month {
+    padding: 25px;
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+}
+
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.month .prev {
+    float: left;
+    padding-top: 10px;
+    cursor: pointer
+}
+
+.month .next {
+    float: right;
+    padding-top: 10px;
+    cursor: pointer
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+  display: table;
+  width:100%;
+}
+
+.weekdays li {
+  display: table-cell;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+
+
+.days{
+  display: table;
+  table-layout: fixed;
+  width:100%;
+  border-collapse: collapse;
+}
+
+.days .dt-row{
+  display: table-row;
+}
+
+.dt-cell{
+  display: table-cell;
+  width: 13.6%;
+  height: 125px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #efefef;
+  cursor: pointer
+}
+
+.dt-cell:hover,.dt-cell:active{
+ box-shadow: inset 0px 0px 6px 0px #1abc9c;
+}
+.relative-cont{
+  position: relative
+}
+.relative-cont span.date{
+  position: absolute;
+  right: 0px;
+  padding: 6px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  text-align: center;
+  box-shadow: 0px 2px 8px -1px black;
+}
+
+.inMonth{
+  font-weight: bold;
+  background: #fff;
+}
+
+.inMonth.weekEnd{
+  background: #efefef;
+}
+
+.active span.date{
+  background: #1abc9c;
+  color: #fff !important
+}
+
+.dt-cell span.date{
+  color: #a9a9a9;
+}
+.weekEnd .date,.dt-cell .date{
+background: #efefef;
+  color: #ccc;
+}
+
+.dt-cell.inMonth .date{
+  color: #666;
+}
+
+.weekEnd.inMonth .date{
+  color: #a9a9a9;
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+    .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+    .weekdays li, .days li {width: 12.5%;}
+    .days li.active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+    .weekdays li, .days li {width: 12.2%;}
+}
+.animated {
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+}
+
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+}
+
+.holiday {position:relative; box-shadow: inset 0px 0px 6px 0px #f00;}
+.holiday::before{
+    position:absolute;
+    content:'';
+    width:0;
+    height:0;
+    /* border-top:10px solid #f00; */
+    z-index:1;
+    border-bottom: 20px solid #f00;
+    border-top:20px solid transparent;
+    bottom: 0;
+    left: 0;
+    border-left:20px solid #f00;
+    border-right:20px solid transparent;
+    }
